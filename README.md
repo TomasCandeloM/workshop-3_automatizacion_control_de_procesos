@@ -76,7 +76,7 @@ donde lo unico a destacar es la teroalimentación del relé IR_1 que garantiza q
 
 Las siguientes 5 redes quedaron en el software como se ve en las siguientes imagenes:
 
-![DISEÑO LADDER DEL SISTEMA DE CONTROL DEL TANQUE DE AGUA](Image\red_codesys.png)
+![DISEÑO LADDER DEL SISTEMA DE CONTROL DEL TANQUE DE AGUA](Image/red_codesys.png)
 
 
 En todos estos casos el primer contacto que tienen es el del relé ya que con esto garantizamos que muestre los indicadores unicamente cuando el sistema esta activo, lo cual se trasporta a la vida real en el sentido de que a menos que la maquinaria este prendida, los sensores pueden seguir midiendo pero no seran procesados ni generaran una salida del sistema, ya que no esta activo este mismo. 
@@ -98,15 +98,15 @@ Una vez creada esta interfaz y la animación del tanque lo ultimo que se realizo
 
 Con todo listo se realizo la simulación del codesys con el HMI y los resultados obtenidos fueron los siguientes:
 
-![RESULTADO DE LA SIMLACION INDICACOR VACIO](Image/HMI_VACIO.png)
+![RESULTADO DE LA SIMLACION INDICACOR VACIO](Image/HMI_vacio.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR BAJO](Image/HMI_BAJO.png)
+![RESULTADO DE LA SIMLACION INDICACOR BAJO](Image/HMI_bajo.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR ALTO](Image/HMI_ALTO.png)
+![RESULTADO DE LA SIMLACION INDICACOR ALTO](Image/HMI_alto.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR CORRECTO](Image/HMI_CORRECTO.png)
+![RESULTADO DE LA SIMLACION INDICACOR CORRECTO](Image/HMI_correcto.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR ERROR](Image/HMI_ERROR.png)
+![RESULTADO DE LA SIMLACION INDICACOR ERROR](Image/HMI_error.png)
 
 
 ## Implementación del sistema en openPLC
