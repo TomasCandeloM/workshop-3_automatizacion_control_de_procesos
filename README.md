@@ -28,7 +28,7 @@ Con las entradas y salidas determinadas, el siguiente paso fue realizar una tabl
 
 La tabla de verdad resultante fue la siguiente: 
 
-![TABLA DE VERDAD PARA EL DISEÑO](Image\tabla_de_verdad.png)
+![TABLA DE VERDAD PARA EL DISEÑO](Image/tabla_de_verdad.png)
 
 aca podemos ver los 5 posibles casos: 
 - el tanque esta en el nivel de agua adecuado: **sensor 1 y 2** enviando señal
