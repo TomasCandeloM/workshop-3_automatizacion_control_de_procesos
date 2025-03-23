@@ -39,7 +39,7 @@ aca podemos ver los 5 posibles casos:
 
 Con la tabla de verdad podemos obtener las funciones que representan cada uno de los casos segun que condiciones tienen en la entrada, los primeros 4 casos dan funciones directas ya que unicamente existe una configuración que dara la salida deseada, mientras que para el caso de error se tienen que evaluar 4 diferentes combinaciones de condiciones inciales para dar con el output deseado, las funciones con compuertas logicas quedarian de esta manera:
 
-![COMPUERTAS LOGICAS DEL DISEÑO](Image\compuertas_logicas.png)
+![COMPUERTAS LOGICAS DEL DISEÑO](Image/compuertas_logicas.png)
 
 
 Cabe resaltar que estas funciones fueron obtenidas con el apoyo de la pagina web 32x8, proporcionada por el profesor, a excepción de la función para los casos de error esto debido a que como grupo tomamos la desición de implentar esta función de una manera diferente a la que probablemente usarian los demas equipos de trabajo. 
@@ -70,7 +70,7 @@ Una vez se crearon las variables se construyo el esquematico en forma, para este
 
 En la primer red simplemente se hace el esquematico que se ve en la imagen 
 
-![DISEÑO LADDERR DEL INCIO DEL SISTEMA](Image\red1_codesys.png)
+![DISEÑO LADDERR DEL INCIO DEL SISTEMA](Image/red1_codesys.png)
 
 donde lo unico a destacar es la teroalimentación del relé IR_1 que garantiza que el sistema se manenga encendido hasta que se active el boton de parar.
 
@@ -88,7 +88,7 @@ Como el sistema que se desarrollo consistia en el control del nivel de agua en u
 
 El resultado final del HMI fue el siguiente: 
 
-![DISEÑO HMI DE LA SIMULACIÓN DEL SISTEMA](Image\HMI.png)
+![DISEÑO HMI DE LA SIMULACIÓN DEL SISTEMA](Image/HMI.png)
 
 En este podemos ver una semejanza a los centros de control de una fabrica, donde tenemos una visualización del tanque a las izquierda y los indicadores a la derecha, en la parte inferior del panel tenemos la palanca que activa el sistema y el botón de pausa, fuera de este panel de control encontramos 3 botos los cuales representaran los sensores del tanque, puesto que este software no cuenta con sensores para simular el proceso. 
 
@@ -98,15 +98,15 @@ Una vez creada esta interfaz y la animación del tanque lo ultimo que se realizo
 
 Con todo listo se realizo la simulación del codesys con el HMI y los resultados obtenidos fueron los siguientes:
 
-![RESULTADO DE LA SIMLACION INDICACOR VACIO](Image\HMI_VACIO.png)
+![RESULTADO DE LA SIMLACION INDICACOR VACIO](Image/HMI_VACIO.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR BAJO](Image\HMI_BAJO.png)
+![RESULTADO DE LA SIMLACION INDICACOR BAJO](Image/HMI_BAJO.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR ALTO](Image\HMI_ALTO.png)
+![RESULTADO DE LA SIMLACION INDICACOR ALTO](Image/HMI_ALTO.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR CORRECTO](Image\HMI_CORRECTO.png)
+![RESULTADO DE LA SIMLACION INDICACOR CORRECTO](Image/HMI_CORRECTO.png)
 
-![RESULTADO DE LA SIMLACION INDICACOR ERROR](Image\HMI_ERROR.png)
+![RESULTADO DE LA SIMLACION INDICACOR ERROR](Image/HMI_ERROR.png)
 
 
 ## Implementación del sistema en openPLC
@@ -119,7 +119,7 @@ Primero que nada tuvimos que replicar el diagrama Ladder en openPLC para posteri
 
 Se crearon las variables y luego sueron asignadas segun correspondia a la lógica a implemntar, Finalmente el diagrama Ladder del sistema que integra todas las condiciones en un solo riel fue el siguiente:
 
-![Diagrama Ladder implementado en openPLC](Image\Ladder_openPLC.png)
+![Diagrama Ladder implementado en openPLC](Image/Ladder_openPLC.png)
 
 Con el diagrama creado se realizo una nueva simulación forzando los valores de **True** o **False** en los contactos con el único fin de verificar que la implementación en openPLC se haya realizado correctamente, en este caso todo fuando de acuerdo a lo establecido.
 
