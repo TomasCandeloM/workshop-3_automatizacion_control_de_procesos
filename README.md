@@ -28,7 +28,7 @@ Con las entradas y salidas determinadas, el siguiente paso fue realizar una tabl
 
 La tabla de verdad resultante fue la siguiente: 
 
-![TABLA DE VERDAD PARA EL DISEÑO](Image\tabla_de_verdad.png)
+![TABLA DE VERDAD PARA EL DISEÑO](Image/tabla_de_verdad.png)
 
 aca podemos ver los 5 posibles casos: 
 - El tanque esta en el nivel de agua adecuado: **Sensor 1 y 2** enviando señal
@@ -76,7 +76,7 @@ donde lo único a destacar es la retroalimentación del relé IR_1 que garantiza
 
 Las siguientes 5 redes quedaron en el software como se ve en las siguientes imágenes:
 
-![DISEÑO LADDER DEL SISTEMA DE CONTROL DEL TANQUE DE AGUA](Image\red_codesys.png)
+![DISEÑO LADDER DEL SISTEMA DE CONTROL DEL TANQUE DE AGUA](Image/red_codesys.png)
 
 
 En todos estos casos el primer contacto que tienen es el del relé ya que con esto garantizamos que muestre los indicadores unicamente cuando el sistema esta activo, lo cual se trasporta a la vida real en el sentido de que a menos que la maquinaria este prendida, los sensores pueden seguir midiendo pero no serán procesados ni generaran una salida del sistema, ya que no esta activo este mismo. 
@@ -88,7 +88,7 @@ Como el sistema que se desarrollo consistía en el control del nivel de agua en 
 
 El resultado final del HMI fue el siguiente: 
 
-![DISEÑO HMI DE LA SIMULACIÓN DEL SISTEMA](Image\HMI.png)
+![DISEÑO HMI DE LA SIMULACIÓN DEL SISTEMA](Image/HMI.png)
 
 En este podemos ver una semejanza a los centros de control de una fabrica, donde tenemos una visualización del tanque a las izquierda y los indicadores a la derecha, en la parte inferior del panel tenemos la palanca que activa el sistema y el botón de pausa, fuera de este panel de control encontramos 3 botos los cuales representaran los sensores del tanque, puesto que este software no cuenta con sensores para simular el proceso. 
 
@@ -119,7 +119,7 @@ Primero que nada tuvimos que replicar el diagrama Ladder en openPLC para posteri
 
 Se crearon las variables y luego fueron asignadas según correspondía a la lógica a implementar, Finalmente el diagrama Ladder del sistema que integra todas las condiciones en un solo riel fue el siguiente:
 
-![Diagrama Ladder implementado en openPLC](Image\Ladder_openPLC.png)
+![Diagrama Ladder implementado en openPLC](Image/Ladder_openPLC.png)
 
 Con el diagrama creado se realizo una nueva simulación forzando los valores de **True** o **False** en los contactos con el único fin de verificar que la implementación en openPLC se haya realizado correctamente, en este caso todo cuando de acuerdo a lo establecido.
 
