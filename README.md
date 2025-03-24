@@ -102,11 +102,11 @@ Con todo listo se realizo la simulación del CodeSys con el HMI y los resultados
 
 ![RESULTADO DE LA SIMULACIÓN INDICADOR BAJO](Image/HMI_BAJO.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR ALTO](/HMI_ALTO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR ALTO](Image/HMI_ALTO.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR CORRECTO](/HMI_CORRECTO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR CORRECTO](Image/HMI_CORRECTO.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR ERROR](/HMI_ERROR.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR ERROR](Image/HMI_ERROR.png)
 
 
 ## Implementación del sistema en OpenPLC
@@ -126,7 +126,7 @@ Con el diagrama creado se realizo una nueva simulación forzando los valores de 
 # Validación con Equipo Real y OpenPLC
 Ya teniendo el sistema montado en ladder en la aplicación OpenPLC, podemos simularlo en el sistema que nos ofrece la misma aplicación, a continuación una muestra de la simulación.
 
-![Simulación Activa en OpenPLC](/Simulacion_OpenPLC.png)
+![Simulación Activa en OpenPLC](Image/Simulacion_OpenPLC.png)
 
 De esta forma podemos validar el correcto funcionamiento del sistema implementado, cambiando las diferentes entradas del sistema dinámicamente para verificar que se cumplan los requerimientos solicitados.
 
@@ -134,7 +134,7 @@ Sin embargo, es necesario realizar configuraciones adicionales para poder asegur
 
 Primeramente es necesario conseguir un microcontrolador adecuado que nos permita subir el programa generado por la aplicación OpenPLC a su sistema. Para esto decidimos hacer uso de un Arduino Uno  que cuenta con el chip microcontrolador ATMEGA328P, esto debido a la compatibilidad del Arduino y del chip con OpenPLC y al manejo previo del equipo con este dispositivo.
 
-![Arduino Uno](/Arduino_Uno.jpg)
+![Arduino Uno](Image/Arduino_Uno.jpg)
 
 *Recuperado de https://www.amazon.in/Lalitha%C2%AE-R3-ATmega328P-Microcontroller-Prototyping/dp/B0DBGNN9RZ*
 
@@ -158,7 +158,7 @@ De igual manera, se debe planear el uso de salidas:
 
 Se puede ver que necesitamos cinco entradas y cinco salidas digitales, podemos buscar en el datasheet del Arduino Uno las disposición de los pines que cumplen con lo requerido:
 
-![Arduino Uno Pines](/Arduino_Uno_Pines.png)
+![Arduino Uno Pines](Image/Arduino_Uno_Pines.png)
 *Recuperado de https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf*
 
 Podemos ver que contamos con 14 pines que naturalmente se manejan de manera digital por lo que se cumple con los que se requiere.
@@ -186,19 +186,19 @@ Teniendo en cuenta que los valores después del punto en la ubicación correspon
 
 A continuación se debe usar la opción de Transferir Programa a PLC que nos ofrece la aplicación:
 
-![Transfer to PLC función](/Transfer_PLC.png)
+![Transfer to PLC función](Image/Transfer_PLC.png)
 
 Se nos abrirá e la que se deberá seleccionar el sistema de Hardware que se vaya a usar, en este caso el Arduino UNO y el puerto USB en el que se encuentra conectado. Seguido, deberemos configurar correctamente la lista de pines de entrada y salidas digitales, es decir, la lista que se menciono anteriormente, esto se configura en la sección "I/O Config":
 
-![Configuración de entradas y salidas digitales](/Input_Output_Config.png)
+![Configuración de entradas y salidas digitales](Image/Input_Output_Config.png)
 
 Con las configuraciones ya dispuestas, le debemos dar a la opción
 "Transfer to PLC" que encontraremos en la sección "Transferir". Esto subirá el software de nuestro sistema al chip microcontrolador que se encuentra en el Arduino, configurando de esta manera el sistema para poder hacer pruebas. Si todo esta bien, en la consola debería terminar la ejecución con el mensaje "Done":
 
-![Transferencia a PLC completada](/Transfer_Completed.png)
+![Transferencia a PLC completada](Image/Transfer_Completed.png)
 
 ### Montaje Físico
 
 Para un primer montaje, se hizo uso de una pequeña protoboard que funcionara para colocar todos los elementos necesarios. Si bien se hará uso de switches que permitan modificar y dar los estados necesarios para que el sistema funcione, inicialmente se harán las pruebas con la alimentación del sistema para garantizar que si se presenta algún falló no sea por algún componente defectuoso, esto se estableció tras realizar pruebas con switches que debido a su disposición generaron ruido, modificando los resultados esperados. La alimentación que se usará será la brindad por los pines 5V y GND del Arduino. La disposición del sistema es la siguiente:
 
-![Montaje Inicial](/Montaje_Inicial.png)
+![Montaje Inicial](Image/Montaje_Inicial.png)
