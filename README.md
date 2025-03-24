@@ -202,3 +202,27 @@ Con las configuraciones ya dispuestas, le debemos dar a la opción
 Para un primer montaje, se hizo uso de una pequeña protoboard que funcionara para colocar todos los elementos necesarios. Si bien se hará uso de switches que permitan modificar y dar los estados necesarios para que el sistema funcione, inicialmente se harán las pruebas con la alimentación del sistema para garantizar que si se presenta algún falló no sea por algún componente defectuoso, esto se estableció tras realizar pruebas con switches que debido a su disposición generaron ruido, modificando los resultados esperados. La alimentación que se usará será la brindad por los pines 5V y GND del Arduino. La disposición del sistema es la siguiente:
 
 ![Montaje Inicial](Image/Montaje_Inicial.png)
+
+A continuación, las muestras de los diferentes estados del sistema e el montaje físico inicial:
+
+#### Sistema Encendido - Nivel de Agua: Vacío
+![Sin Agua - Montaje Inicial](Image/Vacio_Inicial.jpg)
+#### Sistema Encendido - Nivel de Agua: Bajo
+![Nivel de Agua Bajo - Montaje Inicial](Image/Nivel_Bajo_Inicial.jpg)
+#### Sistema Encendido - Nivel de Agua: Medio (Correcto)
+![Nivel de Agua Medio - Montaje Inicial](Image/Nivel_Correcto_Inicial.jpg)
+#### Sistema Encendido - Nivel de Agua: Alto
+![Nivel de Agua Alto - Montaje Inicial](Image/Nivel_Alto_Inicial.jpg)
+#### Sistema Encendido - Nivel de Agua: Sin Sentido
+![Nivel de Agua Sin Sentido - Montaje Inicial](Image/Error_Inicial.jpg)
+#### Sistema Parado
+![Sistema Apagado - Montaje Inicial](Image/Sistema_Apagado_Inicial.jpg)
+
+
+
+## Referencias  
+
+[1] Arduino, "Arduino Uno Rev3 Datasheet," 2016. [Online]. Available: [https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf). [Accessed: 23-Mar-2025].  
+
+[2] Autonomy Logic, "Creating Your First Project on OpenPLC Editor," 2023. [Online]. Available: [https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/](https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/). [Accessed: 23-Mar-2025].  
+
