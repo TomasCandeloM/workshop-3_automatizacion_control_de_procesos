@@ -230,10 +230,10 @@ El resultado fue el siguiente:
 ![ Montaje Final](Image/Montaje_Final.jpg)
 
 Se puede ver que se cuentan con todos los leds encargados de mostrar los estados del sistema además de dos que muestren si el sistema se encuentra encendido o apagado. Se diseño una representación gráfica del sistema de agua que diera la ilusión de que el tanque de agua se va llenando de acuerdo a como se encuentre el estado de los switches. A continuación un video explicativo del funcionamiento de este montaje final.
+ 
+ ### *Dar click para Reproducir*
 
-
-[![Montaje Final](Image/Montaje_Final.jpg)](https://youtu.be/htnSlVmR8lM)
-
+[![Montaje_final_Video](https://img.youtube.com/vi/htnSlVmR8lM/0.jpg)](https://www.youtube.com/watch?v=htnSlVmR8lM)
 
 ## Referencias  
 
