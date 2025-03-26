@@ -51,7 +51,7 @@ En este caso lo que se hizo fue calcular los posibles casos a mano y a partir de
 
 
 
-### diseño Ladder
+### Diseño Ladder
 
 Ahora con las funciones representadas en compuertas lógicas, podemos "traducir" estas compuertas a rieles y contactos para representar el sistema en una lógica Ladder, para esto utilizamos los conocimientos vistos en clase sobre como es la representación de una compuerta AND, OR y XOR, que son las 3 compuertas lógicas usadas, en lenguaje Ladder. El diseño fue implementado en CodeSys para hacer el primer diseño de este y la simulación del HMI.
 
@@ -218,6 +218,21 @@ A continuación, las muestras de los diferentes estados del sistema e el montaje
 #### Sistema Parado
 ![Sistema Apagado - Montaje Inicial](Image/Sistema_Apagado_Inicial.jpg)
 
+
+## Montaje Final
+
+Tras realizar todas las pruebas pertinentes, se realizo un diseño que cumpla y represente de manera correcta el contexto y funcionamiento del sistema. Para ello, lo primero que se hizo fue reemplazar los cables que mandaban señales directas al Arduino yas sea desde positivo (1), o desde negativo (0) por deep switches que permitieran dar estas señales únicamente cambiando el estado de los respectivos switches. Se implementó undo de dos entradas para el manejo de encendido y apagado y uno de cuatro para las entradas de bajo, correcto y lleno del tanque que serian las que al fin y al cabo determinarían el comportamiento del sistema.
+
+Se diseño una carcasa que simulara un sistema de monitoreo desde una pequeña consola y que desde esta se pudiera encender y apagar el sistema y manipular los diferentes niveles de agua haciendo uso de los switches ya mencionados. 
+
+El resultado fue el siguiente:
+
+![ Montaje Final](Image/Montaje_Final.jpg)
+
+Se puede ver que se cuentan con todos los leds encargados de mostrar los estados del sistema además de dos que muestren si el sistema se encuentra encendido o apagado. Se diseño una representación gráfica del sistema de agua que diera la ilusión de que el tanque de agua se va llenando de acuerdo a como se encuentre el estado de los switches. A continuación un video explicativo del funcionamiento de este montaje final.
+
+
+[![Montaje Final](Image/Montaje_Final.jpg)](ruta/a/Video/Funcionamiento_Montaje_Final.mp4)
 
 
 ## Referencias  
