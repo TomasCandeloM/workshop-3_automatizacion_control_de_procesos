@@ -7,7 +7,7 @@ Tomas Candelo Montoya
 Carlos Farouk Abdalá Rincón
 
 **** 
-## Diseño del circuito lógico para el proceso automatizado 
+# Diseño del circuito lógico para el proceso automatizado 
 
 En este documento exploraremos el proceso de desarrollo que se siguió para llegar a la solución final para un proceso de autorregulación de un tanque donde tenemos 3 sensores a lo largo de este, con base a las señales dadas por estos sensores de entrada, el sistema informara de la situación del agua en el tanque para que los trabajadores de la planta puedan reaccionar y tomar decisiones frente a esto. 
 
@@ -21,10 +21,10 @@ Una vez definido el proceso el diseño, pasamos a la etapa del diseño lógico d
 - Indicador de que el tanque esta vacío **(output)**
 - Indicador de que hay un error en la medición del tanque **(output)**
 
-### Diseño Lógico 
+## Diseño Lógico 
 
 
-Con las entradas y salidas determinadas, el siguiente paso fue realizar una tabla de verdad, esto fue nuestra base para realizar la lógica combinacional del sistema, ya que este es el método adecuado para realizar el diagrama lógico. 
+Con las entradas y salidas determinadas, el siguiente paso fue realizar una tabla de verdad, esto fue nuestra base para realizar la lógica combinacional del sistema, ya que este es el método adecuado para realizar el diagrama lógico[1]. 
 
 La tabla de verdad resultante fue la siguiente: 
 
@@ -42,7 +42,7 @@ Con la tabla de verdad podemos obtener las funciones que representan cada uno de
 ![COMPUERTAS LÓGICAS DEL DISEÑO](Image/compuertas_logicas.png)
 
 
-Cabe resaltar que estas funciones fueron obtenidas con el apoyo de la pagina web 32x8, proporcionada por el profesor, a excepción de la función para los casos de error esto debido a que como grupo tomamos la decisión de implementar esta función de una manera diferente a la que probablemente usarÍan los demás equipos de trabajo. 
+Cabe resaltar que estas funciones fueron obtenidas con el apoyo de la pagina web 32x8[2], proporcionada por el profesor, a excepción de la función para los casos de error esto debido a que como grupo tomamos la decisión de implementar esta función de una manera diferente a la que probablemente usarÍan los demás equipos de trabajo. 
 
 En este caso lo que se hizo fue calcular los posibles casos a mano y a partir de ahi simplificar para obtener una nueva lógica que cumpliese con la misma función, la nueva función a implementar en los casos de errores es la siguiente: 
 
@@ -51,15 +51,15 @@ En este caso lo que se hizo fue calcular los posibles casos a mano y a partir de
 
 
 
-### Diseño Ladder
+## Diseño Ladder
 
 Ahora con las funciones representadas en compuertas lógicas, podemos "traducir" estas compuertas a rieles y contactos para representar el sistema en una lógica Ladder, para esto utilizamos los conocimientos vistos en clase sobre como es la representación de una compuerta AND, OR y XOR, que son las 3 compuertas lógicas usadas, en lenguaje Ladder. El diseño fue implementado en CodeSys para hacer el primer diseño de este y la simulación del HMI.
 
-## Implementación en CodeSys
+# Implementación en CodeSys
 
 Con el diseño Ladder listo pasamos al siguiente paso del workshop el cual consiste en la implementación y simulación de nuestro diseño en el software de CodeSys, para este apartado se realizaron dos actividades principales, realizar el esquemático Ladder y realizar un HMI que represente como seria la interacción con este sistema automatizado. 
 
-### Esquemático Ladder del diseño
+## Esquemático Ladder del diseño
 
 Primero, una vez estamos en el software, en el plano de PLC_PRG se añadió un primer contacto para asi poder cerrar las variables globales que serán necesarias para la implementación del diseño, ademas de las ya mencionadas anteriormente aquí se crearon variables adicionales que serán necesarias para la implementación y simulación del diseño 
 - **Variable START:** Esta sera usada para dar inicio como tal al proceso de medición del nivel de agua 
@@ -81,8 +81,8 @@ Las siguientes 5 redes quedaron en el software como se ve en las siguientes imá
 
 En todos estos casos el primer contacto que tienen es el del relé ya que con esto garantizamos que muestre los indicadores unicamente cuando el sistema esta activo, lo cual se trasporta a la vida real en el sentido de que a menos que la maquinaria este prendida, los sensores pueden seguir midiendo pero no serán procesados ni generaran una salida del sistema, ya que no esta activo este mismo. 
 
-### simulación con un HMI 
-una vez el esquemático del Ladder estaba listo, se añadió un objeto de visualización para el diseño de la simulación con uso de un HMI (Human-Machine interface) el cual consiste en una interfaz que permita demostrar como seria la interacción humano maquina para el sistema que se desea implementar o simular. 
+## simulación con un HMI 
+una vez el esquemático del Ladder estaba listo, se añadió un objeto de visualización para el diseño de la simulación con uso de un HMI (Human-Machine interface) el cual consiste en una interfaz que permita demostrar como seria la interacción humano maquina para el sistema que se desea implementar o simular[3]. 
 
 Como el sistema que se desarrollo consistía en el control del nivel de agua en un tanque, lo que optamos a desarrollar como HMI seria un conjunto de figuras que se asimilara a un panel de control de una fabrica en el centro de control de la misma. 
 
@@ -98,22 +98,22 @@ Una vez creada esta interfaz y la animación del tanque lo ultimo que se realizo
 
 Con todo listo se realizo la simulación del CodeSys con el HMI y los resultados obtenidos fueron los siguientes:
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR VACÍO](Image/HMI_VACIO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR VACÍO](Image/HMI_vacio.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR BAJO](Image/HMI_BAJO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR BAJO](Image/HMI_bajo.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR ALTO](Image/HMI_ALTO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR ALTO](Image/HMI_alto.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR CORRECTO](Image/HMI_CORRECTO.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR CORRECTO](Image/HMI_correcto.png)
 
-![RESULTADO DE LA SIMULACIÓN INDICADOR ERROR](Image/HMI_ERROR.png)
+![RESULTADO DE LA SIMULACIÓN INDICADOR ERROR](Image/HMI_error.png)
 
 
-## Implementación del sistema en OpenPLC
+# Implementación del sistema en OpenPLC
 
 Una ves desarrollamos y comprobamos el diseño en CodeSys, pasamos al desarrollo del sistema en el software de openPLC, esto con dos fines, el primero realizar nuevamente una prueba y validación del funcionamiento del sistema e implementar el sistema en un prototipo físico para probar y demostrar el funcionamiento del mismo con componentes reales. 
 
-### Diagrama Ladder 
+## Diagrama Ladder 
 
 Primero que nada tuvimos que replicar el diagrama Ladder en openPLC para posteriormente hacer uso de el en las siguientes pruebas, para implementarlo se realizo el mismo proceso que en CodeSys con la diferencia de que en este software todos los contactos van al mismo riel.
 
@@ -123,7 +123,7 @@ Se crearon las variables y luego fueron asignadas según correspondía a la lóg
 
 Con el diagrama creado se realizo una nueva simulación forzando los valores de **True** o **False** en los contactos con el único fin de verificar que la implementación en openPLC se haya realizado correctamente, en este caso todo cuando de acuerdo a lo establecido.
 
-# Validación con Equipo Real y OpenPLC
+## Validación con Equipo Real y OpenPLC
 Ya teniendo el sistema montado en ladder en la aplicación OpenPLC, podemos simularlo en el sistema que nos ofrece la misma aplicación, a continuación una muestra de la simulación.
 
 ![Simulación Activa en OpenPLC](Image/Simulacion_OpenPLC.png)
@@ -132,7 +132,7 @@ De esta forma podemos validar el correcto funcionamiento del sistema implementad
 
 Sin embargo, es necesario realizar configuraciones adicionales para poder asegurar el correcto funcionamiento del sistema para una posible aplicación en equipo real y tangible.
 
-Primeramente es necesario conseguir un microcontrolador adecuado que nos permita subir el programa generado por la aplicación OpenPLC a su sistema. Para esto decidimos hacer uso de un Arduino Uno  que cuenta con el chip microcontrolador ATMEGA328P, esto debido a la compatibilidad del Arduino y del chip con OpenPLC y al manejo previo del equipo con este dispositivo.
+Primeramente es necesario conseguir un microcontrolador adecuado que nos permita subir el programa generado por la aplicación OpenPLC a su sistema. Para esto decidimos hacer uso de un Arduino Uno  que cuenta con el chip microcontrolador ATMEGA328P, esto debido a la compatibilidad del Arduino y del chip con OpenPLC y al manejo previo del equipo con este dispositivo[4].
 
 ![Arduino Uno](Image/Arduino_Uno.jpg)
 
@@ -163,9 +163,9 @@ Se puede ver que necesitamos cinco entradas y cinco salidas digitales, podemos b
 
 Podemos ver que contamos con 14 pines que naturalmente se manejan de manera digital por lo que se cumple con los que se requiere.
 
-### Configuración OpenPLC
+## Configuración OpenPLC
 
-A continuación se deben configurar la disposición de entradas y salidas del sistema en la tabla de variables que nos da OpenPLC, para esto podemos tomar como ejemplo una implementación que se encuentra en la documentación de OpenPLC [2] para entender como disponer la ubicación de las variables creadas en el Arduino para que todo el sistema funcione de manera correcta.
+A continuación se deben configurar la disposición de entradas y salidas del sistema en la tabla de variables que nos da OpenPLC, para esto podemos tomar como ejemplo una implementación que se encuentra en la documentación de OpenPLC [5] para entender como disponer la ubicación de las variables creadas en el Arduino para que todo el sistema funcione de manera correcta.
 
 Teniendo en cuenta lo anterior, se debe asignar la ubicación valida de cada variable. Las variables contaran en la implementación con un led cada una que nos indique de manera visual el comportamiento del sistema. La disposición de las variables será la siguiente:
 
@@ -197,7 +197,9 @@ Con las configuraciones ya dispuestas, le debemos dar a la opción
 
 ![Transferencia a PLC completada](Image/Transfer_Completed.png)
 
-### Montaje Físico
+# Montaje
+
+## Montaje Físico
 
 Para un primer montaje, se hizo uso de una pequeña protoboard que funcionara para colocar todos los elementos necesarios. Si bien se hará uso de switches que permitan modificar y dar los estados necesarios para que el sistema funcione, inicialmente se harán las pruebas con la alimentación del sistema para garantizar que si se presenta algún falló no sea por algún componente defectuoso, esto se estableció tras realizar pruebas con switches que debido a su disposición generaron ruido, modificando los resultados esperados. La alimentación que se usará será la brindad por los pines 5V y GND del Arduino. La disposición del sistema es la siguiente:
 
@@ -235,9 +237,182 @@ Se puede ver que se cuentan con todos los leds encargados de mostrar los estados
 
 [![Montaje_final_Video](https://img.youtube.com/vi/htnSlVmR8lM/0.jpg)](https://www.youtube.com/watch?v=htnSlVmR8lM)
 
-## Referencias  
+# anexos
 
-[1] Arduino, "Arduino Uno Rev3 Datasheet," 2016. [Online]. Available: [https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf). [Accessed: 23-Mar-2025].  
+## Actas de reunión 
 
-[2] Autonomy Logic, "Creating Your First Project on OpenPLC Editor," 2023. [Online]. Available: [https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/](https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/). [Accessed: 23-Mar-2025].  
+###Acta de Reunión 1
+
+### 1. información General
+
+| **Fecha**                | 19 de marzo del 2025 |
+|--------------------------|----------------------|
+| **Hora de inicio**       | 10:45 AM             |
+| **Hora de finalización** | 12:45 PM             |
+| **Lugar / Plataforma**   | Presencial           |
+| **Moderador**            | Tomas Candelo Montoya  |
+| **Asistentes**           | Carlos Farouk Abdala Rincon |
+
+---
+
+### 2. Temas Tratados
+
+| **Tema**                        | **Descripción**                                                                                                                                  |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Revisión de los requerimientos**     | Se evaluó y repasaron los requerimientos funcionales del sistema planteado para el workshop                |
+| **Estudio de la lógica combinacional** | Se estudio el funcionamiento y teoría de la lógica combinacional para poder desarrollar el diseño de nuestra solución                                                                    |
+| **Diseño preliminar de la solución**  | Se realizó el diseño de la lógica combinacional con el uso de la tabla de verdad para encontrar las funciones                                |
+
+---
+
+### 3. Acuerdos Tomados
+
+| **Responsable**         | **Acuerdo**                              |
+|--------------------------|-------------------------------------------|
+| **Tomas**    | Diseño del esquemático Ladder en el Codesys           |
+| **Carlos**   | Investigación del funcionamiento del HMI en Codesys   |
+
+---
+
+### 4. Próxima Reunión
+
+| **Fecha**              | 21 de marzo de 2025 |
+|------------------------|---------------------|
+| **Hora**               | 3:00 PM             |
+| **Lugar / Plataforma** | Microsoft Teams     |
+
+---
+
+**Firma del Responsable:**  
+Tomas Candelo Montoya
+
+## Acta de Reunión 2
+
+### 1. información General
+
+| **Fecha**                | 21 de marzo del 2025 |
+|--------------------------|----------------------|
+| **Hora de inicio**       | 3:15 PM              |
+| **Hora de finalización** | 3:50 PM              |
+| **Lugar / Plataforma**   | Microsoft Teams      |
+| **Moderador**            | Tomas Candelo Montoya  |
+| **Asistentes**           | Carlos Farouk Abdala Rincon |
+
+---
+
+### 2. Temas Tratados
+
+| **Tema**                        | **Descripción**                                                                                                                                  |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Revisión del esquemático Ladders**     | Se revisó y probo el diseño del esquemático Ladder planteado por Tomas                |
+| **Se modifico y añadieron nuevas variables al diseño** | Se modifico el diseño plantado para añadir las funcionalidades de encendido y apagado al sistema solución                                                                    |
+| **Discusión para el diseño del HMI**  | Se plateo y discutió el diseño pensado para el HMI a implementar en el Codesys                        |
+
+---
+
+### 3. Acuerdos Tomados
+
+| **Responsable**         | **Acuerdo**                              |
+|--------------------------|-------------------------------------------|
+| **Tomas**    | Diseño del diseño del HMI en el Codesys           |
+| **Carlos**   | Esquemático Ladder en openPLC y conseguir los materiales para el montaje físico   |
+
+---
+
+### 4. Próxima Reunión
+
+| **Fecha**              | 22 de marzo de 2025 |
+|------------------------|---------------------|
+| **Hora**               | 12:45 PM             |
+| **Lugar / Plataforma** | Presencial     |
+
+---
+
+**Firma del Responsable:**  
+Carlos Farouk Abdala Rincon 
+
+## Acta de Reunión 3
+
+### 1. información General
+
+| **Fecha**                | 22 de marzo del 2025 |
+|--------------------------|----------------------|
+| **Hora de inicio**       | 12:45 PM              |
+| **Hora de finalización** | 10:25 PM              |
+| **Lugar / Plataforma**   | Presencial      |
+| **Moderador**            | Tomas Candelo Montoya  |
+| **Asistentes**           | Carlos Farouk Abdala Rincon |
+
+---
+
+### 2. Temas Tratados
+
+| **Tema**                        | **Descripción**                                                                                                                                  |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Revisión del esquemático en openPLC**     | Se revisó el proceso implementado en openPLC para iniciar con el montaje físico             |
+| **Montaje físico** | Se realizó el montaje físico con una protoboard para verificar su funcionamiento                                                             |
+| **Construcción de la maqueta**  | Se construyó la maqueta para el montaje final                        |
+| **Montaje final**  | Se construyó termino el montaje final integrando maqueta y montaje físico, además de grabar el video de este para la documentación                  |
+
+---
+
+
+### 3. Acuerdos Tomados
+
+| **Responsable**         | **Acuerdo**                              |
+|--------------------------|-------------------------------------------|
+| **Tomas**    | Documentación restante           |
+| **Carlos**   | Documentación restante  |
+
+---
+
+### 4. Próxima Reunión
+
+| **Fecha**              | 06 de abril de 2025 |
+|------------------------|---------------------|
+| **Hora**               | 7:30 PM             |
+| **Lugar / Plataforma** | Microsoft Teams     |
+
+---
+
+**Firma del Responsable:**  
+Carlos Farouk Abdala Rincon 
+
+## Acta de Reunión 4
+
+### 1. información General
+
+| **Fecha**                | 22 de marzo del 2025 |
+|--------------------------|----------------------|
+| **Hora de inicio**       | 7:30 PM              |
+| **Hora de finalización** | 8:10 PM              |
+| **Lugar / Plataforma**   | Microsoft Teams      |
+| **Moderador**            | Carlos Farouk Abdala Rincon  |
+| **Asistentes**           | Tomas Candelo Montoya|
+
+---
+
+### 2. Temas Tratados
+
+| **Tema**                        | **Descripción**                                                                                                                                  |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Revisión final de la documentación**     | Se valido la documentación con la rubrica dada por el profesor para verificar que todo fuese correcto            |
+| **Grabación de los videos** | Se grabaron los videos del funcionamiento del Codesys y el openPLC, se editaron con el video del funcionamiento físico                                              |
+---
+
+**Firma del Responsable:**  
+Tomas Candelo Montoya 
+
+
+## Referencias
+
+[1] A. Castillo, "Puertas lógicas: qué son y cómo se usan en sistemas combinacionales y secuenciales", HardZone, 23-may-2022. [En línea]. available at: https://hardzone.es/tutoriales/rendimiento/puertas-logicas-sistemas-combinacionales-secuenciales/. [Accessed: 19-mar-2025].
+
+[2] "32x8 Logic Simulator", 32x8.com. [En línea]. available at: http://32x8.com/index.html. [Accessed: 19-mar-2025].
+
+[3] RealPars, "Using CODESYS with HMI Interfaces", YouTube, 30-oct-2023. [Online]. available at: https://www.youtube.com/watch?v=uv_mC2t-Tlg. [Accessed: 21-mar-2025].
+
+[4] Arduino, "Arduino Uno Rev3 Datasheet," 2016. [Online]. Available: [https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf). [Accessed: 23-Mar-2025].  
+
+[5] Autonomy Logic, "Creating Your First Project on OpenPLC Editor," 2023. [Online]. Available: [https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/](https://autonomylogic.com/docs/3-2-creating-your-first-project-on-openplc-editor/). [Accessed: 23-Mar-2025].  
 
